@@ -1,3 +1,9 @@
+/*
+ * firmware.ino - Contains the 'setup()' and 'loop()' entry points for ESP8266 firmware.
+ * 
+ * See project description at https://github.com/DLehenbauer/differential-temperature-controller.
+ */
+
 #include <Time.h>
 #include "Device.h"
 #include "LocalStorage.h"

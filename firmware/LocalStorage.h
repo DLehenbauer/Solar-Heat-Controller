@@ -2,7 +2,7 @@
 #define __LOCAL_STORAGE_H__
 
 /*
- * LocalStorage.h - Stores WiFi and Firebase configuration on the Esp8266's built-in flash drive.
+ * LocalStorage.h - Stores WiFi and Firebase configuration on the Esp8266's onboard SD/Flash.
  * 
  * Configuration is loaded from SPIFFS during init() from the file '/config.txt'.  '/config.txt'
  * is a binary file containing 4 null terimnated strings.
@@ -18,13 +18,13 @@
 
 class LocalStorage {
   private:
+    bool _isConfigLoaded = false;   // True if '/config.txt' was successfully loaded during 'init()'.
+  
     String _wifi_ssid = "";         // During 'init()', these fields are populated from the contents
     String _wifi_password = "";     // of '/config.txt', if it exists.
     String _firebase_host = "";
     String _firebase_auth = "";
 
-    bool _isConfigLoaded = false;   // True if '/config.txt' was successfully loaded during 'init()'.
-  
     const char* const _config_file_name = "/config.txt";
     const char* const _reset_sentinel_file_name = "/reset-config.txt";
     const char* const _for_write = "w";
@@ -78,7 +78,7 @@ class LocalStorage {
     void saveString(File file, const char* const name, const char* const value) {
       Serial.print("  "); Serial.print(name); Serial.print(": '"); Serial.print(value); Serial.println("'");
       file.print(value);
-      file.print('\0');   // 'file.print()' does not include the null-terminator, so we do so.
+      file.print('\0');   // The above 'file.print(value)' does not include the null-terminator.
     }
 
     // Initializes this class's member variables with the values saved in '/config.txt'.

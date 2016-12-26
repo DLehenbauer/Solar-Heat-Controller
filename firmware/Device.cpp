@@ -2,6 +2,10 @@
 #include <assert.h>
 #include "Device.h"
 
+/*
+ * Device.cpp - (See description in Device.h)
+ */
+
 // Explicit conversion from bool -> HIGH/LOW.
 /* static */ uint32_t Device::boolToDigital(bool state) {
   return state ? HIGH : LOW;

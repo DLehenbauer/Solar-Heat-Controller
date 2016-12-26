@@ -76,11 +76,9 @@ class NTPTime {
         delay(100);
       } while((timeStatus() == timeNotSet));
 
-      // Relax the sync interval to once every 30 minutes.
+      // Once we have the set the time/date, relax the sync interval to once every 30 minutes.
       setSyncInterval(30 * 60);
     }
 };
 
 #endif __NTPTIME_H__
-
-

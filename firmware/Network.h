@@ -5,8 +5,9 @@
  * Network.h - Configures/connects ESP8266 to WiFi and Firebase realtime database.
  * 
  * Connects the Esp8266 using the WiFi SSID/Password stored in LocalSettings.  If the
- * config is missing from 'LocalSettings' (or does not connect in a reasonable time),
- * starts a captive portal with SSID 'Solar-XXXXXX' to enable configuration over WiFi.
+ * Wifi/Firebase config is missing from 'LocalSettings' (or WiFi does not connect in a
+ * reasonable time), starts a captive portal with SSID 'Solar-XXXXXX' to enable
+ * configuration over WiFi.
  * 
  * The captive portal is used to configure both WiFi and Firebase, since the device needs
  * both to connect to the cloud and retrieve its remaining configuration.

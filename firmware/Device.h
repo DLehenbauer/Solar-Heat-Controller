@@ -1,6 +1,13 @@
 #ifndef __DEVICE_H__
 #define __DEVICE_H__
 
+/*
+ * Device.h - I/O driver for the DTC hardware.
+ * 
+ * The schematic for the DTC hardware can be found at:
+ * https://raw.githubusercontent.com/DLehenbauer/differential-temperature-controller/master/docs/schematic.png
+ */
+
 #include <Ticker.h>
 
 class Device {
